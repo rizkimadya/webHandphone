@@ -12,7 +12,7 @@
     background-position: center;
 }
 #hero .navbar ul li a {
-    color: #fff;
+    color: black;
 }
 #hero .navbar ul li a:hover {
     color: #8ad7e7;
@@ -77,21 +77,21 @@
     display: inline;
 }
 
-#jenis-olahraga {
+#merk-hanphone {
     padding: 100px 0px;
 }
-#jenis-olahraga .title {
+#merk-hanphone .title {
     font-size: 34px;
     font-weight: 600;
     margin: 0;
 }
-#jenis-olahraga .btn {
+#merk-hanphone .btn {
     background-color: #1e2855;
     color: #fff;
     width: 100%;
     transition: all ease-in-out 0.4s;
 }
-#jenis-olahraga .btn:hover {
+#merk-hanphone .btn:hover {
     background-color: #fff;
     color: #1e2855;
     border: 1px solid #1e2855;

@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Olahraga Populer</title>
-    <link rel="shortcut icon"
-        href="https://1.bp.blogspot.com/-MZzxZbc9VMc/WrKE5ALd9tI/AAAAAAAAGKM/iS1AeX9iCo8KV62Yy3XjUFIqWHnvydPjACLcBGAs/s1600/Sepak_Bola.png"
+    <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2022/09/11/06/01/apple-7446229_960_720.png"
         type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -18,12 +17,11 @@
 <body>
 
     <section id="hero">
-        <nav class="navbar navbar-expand-lg bg-transparent">
+        <nav class="navbar navbar-expand-lg shadow fixed-top" style="background-color: #fff;">
             <div class="container">
-                <a class="navbar-brand text-light fw-semibold" href="#">
-                    <img src="https://1.bp.blogspot.com/-MZzxZbc9VMc/WrKE5ALd9tI/AAAAAAAAGKM/iS1AeX9iCo8KV62Yy3XjUFIqWHnvydPjACLcBGAs/s1600/Sepak_Bola.png"
-                        width="30px">
-                    Ronaldo.Com</a>
+                <a class="navbar-brand fw-semibold" href="#">
+                    <img src="https://cdn.pixabay.com/photo/2022/09/11/06/01/apple-7446229_960_720.png" width="30px">
+                    Handphone.Com</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +33,7 @@
                             <a class="nav-link me-2" href="#hero">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="#jenis-olahraga">Jenis Olahraga</a>
+                            <a class="nav-link me-2" href="#merk-hanphone">Merek Handphone</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kontak</a>
@@ -44,29 +42,23 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div class="isi-content row mx-auto">
-                <div class="col-12">
-                    <h1>Selamat Datang di <br> Website Olahraga Terpopuler</h1>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <section id="jenis-olahraga">
+    <section id="merk-hanphone">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="title">Jenis Olahraga</p>
-                    <p class="subtitle">Beberapa jenis olahraga populer di Indonesia</p>
+                    <p class="title">Merk Handphone</p>
+                    <p class="subtitle">Beberapa Merk Handphone</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card shadow overflow-hidden border-0">
-                        <img src="https://cdn.antaranews.com/cache/730x487/2022/07/08/000_326927P.jpg" alt="">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
+                            alt="">
                         <div class="p-3">
-                            <p>Nama Olahraga</p>
+                            <p>Nama Handphone</p>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
                             <button class="btn btn-costum">Lihat Detail</button>
                         </div>
@@ -74,9 +66,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card shadow overflow-hidden border-0">
-                        <img src="https://cdn.antaranews.com/cache/730x487/2022/07/08/000_326927P.jpg" alt="">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
+                            alt="">
                         <div class="p-3">
-                            <p>Nama Olahraga</p>
+                            <p>Nama Handphone</p>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
                             <button class="btn btn-costum">Lihat Detail</button>
                         </div>
@@ -84,9 +77,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card shadow overflow-hidden border-0">
-                        <img src="https://cdn.antaranews.com/cache/730x487/2022/07/08/000_326927P.jpg" alt="">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
+                            alt="">
                         <div class="p-3">
-                            <p>Nama Olahraga</p>
+                            <p>Nama Hanphone</p>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
                             <button class="btn btn-costum">Lihat Detail</button>
                         </div>
