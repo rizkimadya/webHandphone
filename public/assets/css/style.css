@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    font-family: poppins;
+}
+
+#hero {
+    background-image: url("/assets/img/bg-hero.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#hero .navbar ul li a {
+    color: #fff;
+}
+#hero .navbar ul li a:hover {
+    color: #8ad7e7;
+}
+#hero a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+#hero a::before,
+#hero a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+#hero a::before {
+    background-color: #54b3d6;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#hero a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #54b3d6;
+}
+
+#hero a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+#hero a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+#hero a span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#hero a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
+#hero .isi-content {
+    height: 90vh;
+    place-items: center;
+    text-align: center;
+    margin: 0px auto;
+}
+#hero .isi-content h1 {
+    color: #fff;
+    background-color: #1e2855;
+    display: inline;
+}
+
+#jenis-olahraga {
+    padding: 100px 0px;
+}
+#jenis-olahraga .title {
+    font-size: 34px;
+    font-weight: 600;
+    margin: 0;
+}
+#jenis-olahraga .btn {
+    background-color: #1e2855;
+    color: #fff;
+    width: 100%;
+    transition: all ease-in-out 0.4s;
+}
+#jenis-olahraga .btn:hover {
+    background-color: #fff;
+    color: #1e2855;
+    border: 1px solid #1e2855;
+    transition: all ease-in-out 0.4s;
+}
