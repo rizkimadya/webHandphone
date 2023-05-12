@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HandphoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +21,13 @@ Route::get('/', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
-Route::get('/login', function () {
-    return view('auth.login');
-});
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard.dashboard');
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/login', [AdminController::class, 'loginAuth'])->name('login.auth');
+Route::get('logout', [AdminController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('handphone', [HandphoneController::class, 'index'])->name('handphone');
 });

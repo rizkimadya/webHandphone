@@ -14,7 +14,7 @@
                             width="40px">
                         <p class="title ms-2">Hanphone.Com</p>
                     </div>
-                    <form method="POST">
+                    <form action="{{ route('login.auth') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>

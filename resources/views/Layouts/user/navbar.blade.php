@@ -17,7 +17,7 @@
                         <a class="nav-link me-2" href="#merk-hanphone">Merek Handphone</a>
                     </li>
                 </ul>
-                <a href="#" class="btn-costum">Login</a>
+                <a href="{{ route('login') }}" class="btn-costum">Login</a>
             </div>
         </div>
     </nav>
