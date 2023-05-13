@@ -28,7 +28,7 @@ class AdminController extends Controller
             return view('Admin.Dashboard.dashboard')->with('users', $request);
         }
         return back()->withErrors([
-            'password' => 'Email atau Password anda salah',
+            'password' => 'Username atau Password anda salah',
         ]);
     }
 

@@ -30,4 +30,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::get('handphone', [HandphoneController::class, 'index'])->name('handphone');
+    Route::get('/handphone/create', [HandphoneController::class, 'create'])->name('handphone.create');
+    Route::get('/handphone/edit', [HandphoneController::class, 'edit'])->name('handphone.edit');
 });

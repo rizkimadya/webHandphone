@@ -14,6 +14,17 @@
                             width="40px">
                         <p class="title ms-2">Hanphone.Com</p>
                     </div>
+                    @if (session('success'))
+                        <p class="alert alert-success">{{ session('success') }}</p>
+                    @endif
+                    @if (session('wait'))
+                        <p class="alert alert-warning">{{ session('wait') }}</p>
+                    @endif
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $err)
+                            <p class="alert alert-danger">{{ $err }}</p>
+                        @endforeach
+                    @endif
                     <form action="{{ route('login.auth') }}" method="POST">
                         @csrf
                         <div class="mb-3">

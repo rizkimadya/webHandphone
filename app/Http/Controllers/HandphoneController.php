@@ -25,7 +25,7 @@ class HandphoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.handphone.create');
     }
 
     /**
@@ -47,7 +47,6 @@ class HandphoneController extends Controller
      */
     public function show(Handphone $handphone)
     {
-        //
     }
 
     /**
@@ -58,7 +57,7 @@ class HandphoneController extends Controller
      */
     public function edit(Handphone $handphone)
     {
-        //
+        return view('admin.handphone.edit');
     }
 
     /**

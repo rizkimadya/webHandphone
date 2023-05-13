@@ -124,6 +124,11 @@ a {
 .height-100 {
     height: 100vh;
 }
+.btn-costum {
+    background-color: #1e2855;
+    color: #fff;
+    padding: 6px 32px;
+}
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
