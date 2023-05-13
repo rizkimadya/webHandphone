@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Handphone extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'gambar',
+        'merk',
+        'deskripsi',
+        'harga',
+    ];
 }

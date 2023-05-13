@@ -31,5 +31,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('handphone', [HandphoneController::class, 'index'])->name('handphone');
     Route::get('/handphone/create', [HandphoneController::class, 'create'])->name('handphone.create');
+    Route::post('handphone', [HandphoneController::class, 'store'])->name('handphone.store');
     Route::get('/handphone/edit', [HandphoneController::class, 'edit'])->name('handphone.edit');
 });

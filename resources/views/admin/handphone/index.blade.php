@@ -19,21 +19,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <img src="https://cdn.pixabay.com/photo/2022/09/11/06/01/apple-7446229_960_720.png"
-                                    alt="" width="50px">
-                            </td>
-                            <td>Iphone</td>
-                            <td>Rp. 2.000.000</td>
-                            <td>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('handphone.edit') }}" class="btn btn-success">Edit</a>
-                                    <a href="" class="btn btn-danger">Hapus</a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($handphone as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    <img src="/gambarhandphone/{{ $item->gambar }}" alt="" height="50px">
+                                </td>
+                                <td>{{ $item->merk }}</td>
+                                <td>Rp. {{ $item->harga }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="{{ route('handphone.edit') }}" class="btn btn-success">Edit</a>
+                                        <a href="" class="btn btn-danger">Hapus</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidasiHandphone;
 use App\Models\Handphone;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,26 @@ class HandphoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidasiHandphone $request)
     {
-        //
+        $request->validated();
+
+        if ($request->has('gambar')) {
+            $file = $request->file('gambar');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'gambarhandphone/';
+            $file->move($tujuan_upload, $nama_file);
+
+            $handphone = new Handphone([
+                'gambar' => $nama_file,
+                'merk' => $request->merk,
+                'deskripsi' => $request->deskripsi,
+                'harga' => $request->harga,
+            ]);
+        }
+
+        $handphone->save();
+        return redirect()->route('handphone');
     }
 
     /**

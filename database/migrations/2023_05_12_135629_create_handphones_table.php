@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('handphones', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
+            $table->string('merk')->unique();
+            $table->text('deskripsi');
+            $table->string('harga');
             $table->timestamps();
         });
     }

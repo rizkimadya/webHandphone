@@ -3,11 +3,11 @@
 @section('content')
     <div class="row">
         <div class="col-12 mb-3">
-            <p class="fs-3 mb-0">Tambah Data Hanphone</p>
+            <p class="fs-3 mb-0">Tambah Data Handphone</p>
         </div>
         <div class="col-12">
             <div class="card shadow p-4 table">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('handphone.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="d-flex justify-content-end gap-2">
                                 <a href="{{ route('handphone') }}" class="btn btn-danger">Kembali</a>
-                                <a href="" class="btn btn-success">Submit</a>
+                                <button class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </div>
