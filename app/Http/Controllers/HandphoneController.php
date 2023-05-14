@@ -81,9 +81,10 @@ class HandphoneController extends Controller
      */
     public function edit($id)
     {
-        $handphone = Handphone::where('id', $id)->first();
+        $handphone = Handphone::where('id', $id)->firstOrFail();
         return view('admin.handphone.edit', compact('handphone'));
     }
+
 
     /**
      * Update the specified resource in storage.
