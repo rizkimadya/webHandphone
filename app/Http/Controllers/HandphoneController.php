@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ValidasiHandphone;
 use App\Models\Handphone;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\ValidasiHandphone;
 
 class HandphoneController extends Controller
 {
@@ -13,6 +14,12 @@ class HandphoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function beranda()
+    {
+        $handphone = Handphone::paginate(6);
+        return view('index', compact('handphone'));
+    }
+
     public function index()
     {
         $handphone = Handphone::all();
@@ -48,7 +55,6 @@ class HandphoneController extends Controller
             $handphone = new Handphone([
                 'gambar' => $nama_file,
                 'merk' => $request->merk,
-                'deskripsi' => $request->deskripsi,
                 'harga' => $request->harga,
             ]);
         }
@@ -73,9 +79,10 @@ class HandphoneController extends Controller
      * @param  \App\Models\Handphone  $handphone
      * @return \Illuminate\Http\Response
      */
-    public function edit(Handphone $handphone)
+    public function edit($id)
     {
-        return view('admin.handphone.edit');
+        $handphone = Handphone::where('id', $id)->first();
+        return view('admin.handphone.edit', compact('handphone'));
     }
 
     /**
@@ -85,10 +92,30 @@ class HandphoneController extends Controller
      * @param  \App\Models\Handphone  $handphone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Handphone $handphone)
+    public function update(Request $request, $id)
     {
-        //
+        $handphone = Handphone::where('id', $id)->first();
+        $data = $request->all();
+
+        if ($request->has('gambar')) {
+            // Hapus gambar lama
+            if (File::exists(public_path('gambarhandphone/' . $handphone->gambar))) {
+                File::delete(public_path('gambarhandphone/' . $handphone->gambar));
+            }
+
+            $file = $request->file('gambar');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'gambarhandphone/';
+            $file->move($tujuan_upload, $nama_file);
+            $data['gambar'] = "$nama_file";
+        } else {
+            unset($data['gambar']);
+        }
+
+        $handphone->update($data);
+        return redirect('handphone');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -96,8 +123,16 @@ class HandphoneController extends Controller
      * @param  \App\Models\Handphone  $handphone
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Handphone $handphone)
+    public function destroy($id)
     {
-        //
+        $handphone = Handphone::find($id);
+
+        // hapus gambar
+        if (File::exists(public_path('gambarhandphone/' . $handphone->gambar))) {
+            File::delete(public_path('gambarhandphone/' . $handphone->gambar));
+        }
+
+        $handphone->delete();
+        return redirect('handphone');
     }
 }

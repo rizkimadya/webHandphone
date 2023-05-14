@@ -12,7 +12,6 @@ class Handphone extends Model
     protected $fillable = [
         'gambar',
         'merk',
-        'deskripsi',
         'harga',
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Handphone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,7 +10,8 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard.dashboard');
+        $jumlahdata = Handphone::count();
+        return view('admin.dashboard.dashboard', compact('jumlahdata'));
     }
 
     public function login()

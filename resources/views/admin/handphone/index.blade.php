@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12 d-flex justify-content-between mb-3">
-            <p class="fs-3 mb-0">Data Hanphone</p>
+            <p class="fs-3 mb-0">Data Handphone</p>
             <a href="{{ route('handphone.create') }}" class="btn btn-costum mt-1">Tambah Data</a>
         </div>
         <div class="col-12">
@@ -29,8 +29,13 @@
                                 <td>Rp. {{ $item->harga }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <a href="{{ route('handphone.edit') }}" class="btn btn-success">Edit</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
+                                        <a href="/handphone/edit/{{ $item->id }}" class="btn btn-success">Edit</a>
+                                        <form action="/handphone/{{ $item->id }}" method="POST">
+                                            {{ method_field('DELETE') }}
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm(&quot;Confirm delete?&quot;)">Hapus</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

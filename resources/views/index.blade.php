@@ -12,39 +12,63 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card shadow overflow-hidden border-0">
-                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
-                            alt="">
-                        <div class="p-3">
-                            <p>Nama Handphone</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
-                            <button class="btn btn-costum">Lihat Detail</button>
+                @foreach ($handphone as $item)
+                    <div class="col-md-4 mb-md-4 mb-3">
+                        <div class="card shadow border-0 p-3">
+                            <img src="/gambarhandphone/{{ $item->gambar }}"
+                                style="width: 100%; height:310px; object-fit: cover;">
+                            <div class="d-flex my-2">
+                                <p class="fs-5">{{ $item->merk }}</p>
+                                <p class="ms-auto fs-5 text-danger fw-bold">Rp
+                                    {{ number_format($item->harga, 0, ',', '.') }}</p>
+                            </div>
+                            <button type="button" class="btn btn-costum liveToastBtn" data-item-merk="{{ $item->merk }}"
+                                data-item-gambar="{{ $item->gambar }}">Tambahkan di
+                                Keranjang</button>
+                        </div>
+                    </div>
+                @endforeach
+
+                <div class="d-flex justify-content-end">
+                    {!! $handphone->fragment('merk-hanphone')->links('vendor.pagination.bootstrap-4') !!}
+                </div>
+
+                <div class="toast-container position-fixed top-0 mt-5 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <img id="liveToastImg" src="" class="rounded me-2" width="40px">
+                            <strong class="me-auto" id="liveToastMerk"></strong>
+                            <small>Baru Saja</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Handphone Merk <span class="fw-semibold" id="liveToastMerkDetail"></span> berhasil ditambahkan
+                            pada keranjang
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card shadow overflow-hidden border-0">
-                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
-                            alt="">
-                        <div class="p-3">
-                            <p>Nama Handphone</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
-                            <button class="btn btn-costum">Lihat Detail</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card shadow overflow-hidden border-0">
-                        <img src="https://awsimages.detik.net.id/community/media/visual/2021/09/23/iphone-13-pro-max_169.jpeg?w=700&q=90"
-                            alt="">
-                        <div class="p-3">
-                            <p>Nama Hanphone</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, vitae.....</p>
-                            <button class="btn btn-costum">Lihat Detail</button>
-                        </div>
-                    </div>
-                </div>
+
+                <script>
+                    const toastTriggers = document.querySelectorAll('.liveToastBtn');
+                    const toastLiveExample = document.getElementById('liveToast');
+                    const liveToastMerk = document.getElementById('liveToastMerk');
+                    const liveToastMerkDetail = document.getElementById('liveToastMerkDetail');
+                    const liveToastImg = document.getElementById('liveToastImg');
+
+                    toastTriggers.forEach((toastTrigger) => {
+                        toastTrigger.addEventListener('click', () => {
+                            const merk = toastTrigger.getAttribute('data-item-merk');
+                            const gambar = toastTrigger.getAttribute('data-item-gambar');
+                            liveToastMerk.innerText = merk;
+                            liveToastMerkDetail.innerText = merk;
+                            liveToastImg.setAttribute('src', '/gambarhandphone/' + gambar);
+                            const toast = new bootstrap.Toast(toastLiveExample);
+
+                            toast.show();
+                        });
+                    });
+                </script>
+
             </div>
         </div>
     </section>

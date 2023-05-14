@@ -15,12 +15,7 @@ use App\Http\Controllers\HandphoneController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/', [HandphoneController::class, 'beranda']);
 
 Route::get('/login', [AdminController::class, 'login'])->name('login');
 Route::post('/login', [AdminController::class, 'loginAuth'])->name('login.auth');
@@ -32,5 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('handphone', [HandphoneController::class, 'index'])->name('handphone');
     Route::get('/handphone/create', [HandphoneController::class, 'create'])->name('handphone.create');
     Route::post('handphone', [HandphoneController::class, 'store'])->name('handphone.store');
-    Route::get('/handphone/edit', [HandphoneController::class, 'edit'])->name('handphone.edit');
+    Route::get('/handphone/edit/{id}', [HandphoneController::class, 'edit'])->name('handphone.edit');
+    Route::post('/handphone/update/{id}', [HandphoneController::class, 'update'])->name('handphone.update');
+    Route::delete('handphone/{id}', [HandphoneController::class, 'destroy'])->name('handphone.destroy');
 });

@@ -7,6 +7,11 @@
         </div>
         <div class="col-12">
             <div class="card shadow p-4 table">
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <form action="{{ route('handphone.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -17,16 +22,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="merk" class="form-label">Merk</label>
-                                <input type="text" class="form-control" id="merk" name="merk" required
-                                    placeholder="Masukkan Merk Handphone">
+                                <input type="text" class="form-control @error('merk') is-invalid @enderror"
+                                    id="merk" name="merk" required placeholder="Masukkan Merk Handphone">
+                                @error('merk')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi Singkat</label>
-                                <input type="text" class="form-control" id="deskripsi" name="deskripsi" required
-                                    placeholder="Masukkan Deskripsi Singkat">
-                            </div>
                             <div class="mb-3">
                                 <label for="harga" class="form-label">Harga</label>
                                 <input type="number" class="form-control" id="harga" name="harga" required

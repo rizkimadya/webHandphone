@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('gambar');
             $table->string('merk')->unique();
-            $table->text('deskripsi');
             $table->string('harga');
             $table->timestamps();
         });

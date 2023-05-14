@@ -26,7 +26,6 @@ class ValidasiHandphone extends FormRequest
         return [
             'gambar' => 'file|image|mimes:jpeg,png,jpg|max:5000',
             'merk' => 'required|unique:handphones,merk',
-            'deskripsi' => 'required',
             'harga' => 'required',
         ];
         dd("tes");
